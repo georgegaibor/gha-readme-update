@@ -11,7 +11,7 @@ directory = '.'
 part_folders = [folder for folder in os.listdir(directory) if os.path.isdir(os.path.join(directory, folder)) and folder.startswith('part')]
 
 # Generate new part links
-new_part_links = '\n'.join([f'- [x] [Part {folder[4:]}]({base_url}{folder})' for folder in sorted(part_folders)])
+new_part_links = '\n'.join([f'- [x] [Part {folder[4:]}]({base_url}{folder})' for folder in sorted(part_folders, key=lambda folder: int(folder[4:]))])
 
 # Read the current README content
 with open(readme_path, 'r') as file:
